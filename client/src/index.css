@@ -1,0 +1,124 @@
+:root{
+  --bg-1: #fafafb;
+  --bg-2: #f2f2f7;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #4f46e5;
+  --accent-600: #4338ca;
+  --border: #e6e7ea;
+}
+
+/* Reset & layout */
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,Segoe UI,Roboto,Helvetica,Arial;
+  background: linear-gradient(180deg,var(--bg-1) 0%, var(--bg-2) 100%);
+  color:#0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Header / nav */
+.nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 22px;
+  background: rgba(255,255,255,0.78);
+  backdrop-filter: blur(6px);
+  border-bottom:1px solid var(--border);
+  position:sticky; top:0; z-index:50;
+}
+.nav-left { display:flex; align-items:center; gap:12px; }
+.brand{ font-weight:700; font-size:1.2rem; color:#0b1220 }
+.brand-sub{ color:var(--muted); font-size:12px; margin-top:3px }
+.nav-buttons{ display:flex; gap:8px; align-items:center }
+.nav-buttons button{
+  padding:8px 12px; border-radius:10px; border:1px solid transparent;
+  background:transparent; cursor:pointer; font-weight:600; color:#0f172a;
+}
+.nav-buttons button.active{
+  background: linear-gradient(180deg,var(--accent) 0%, var(--accent-600) 100%);
+  color:white; box-shadow: 0 6px 18px rgba(79,70,229,0.12);
+  transform: translateY(-2px);
+}
+
+/* Main container */
+.container{ max-width:980px; margin:26px auto; padding:0 18px 80px; }
+
+/* Headings */
+h2{
+  font-size:1.5rem; margin: 4px 0 14px; color:#0f172a;
+  padding-bottom:6px; border-bottom:1px solid #f0f0f3;
+}
+.section-sub { color:var(--muted); margin:6px 0 12px; }
+
+/* Forms */
+.form{
+  display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap; align-items:center;
+}
+.form input, .form select{
+  padding:10px 12px; border-radius:10px; border:1px solid #e6e7ea; min-width:160px;
+  font-size:14px;
+}
+.form input:focus, .form select:focus{
+  outline:none; border-color: rgba(79,70,229,0.9); box-shadow: 0 6px 18px rgba(79,70,229,0.06);
+}
+.form button{
+  background: var(--accent); color:#fff; border:none; padding:10px 14px; border-radius:10px;
+  cursor:pointer; font-weight:600;
+}
+.form button:hover{ background: var(--accent-600) }
+
+/* List & card */
+.list{ list-style:none; padding:0; margin:0; display:block; }
+.card{
+  background:var(--card); padding:14px; border-radius:14px; margin-bottom:12px;
+  border:1px solid var(--border); transition: transform .12s ease, box-shadow .12s ease;
+}
+.card:hover{ transform: translateY(-6px); box-shadow:0 10px 30px rgba(2,6,23,0.06) }
+
+.card-title{ font-weight:700; font-size:15px }
+.muted{ color:var(--muted); font-size:13px }
+.small{ font-size:12px; color:var(--muted) }
+
+/* card layout for list items */
+.emp-card, .task-card{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px }
+.card-left{ flex:1 }
+.card-actions{ display:flex; gap:8px; align-items:center }
+
+/* delete button */
+.btn-delete{ background:transparent; border:none; padding:6px; border-radius:8px; cursor:pointer; font-size:16px }
+.btn-delete:hover{ background:#fff0f0; color:#dc2626 }
+
+/* badges for status */
+.badge{ display:inline-block; padding:4px 8px; border-radius:999px; font-weight:600; font-size:12px; }
+.badge-todo{ background:#f3f4f6; color:#111827 }
+.badge-inprogress{ background:#fff7ed; color:#92400e }
+.badge-done{ background:#ecfdf5; color:#065f46 }
+
+/* stats grid on dashboard */
+.stats-grid{ display:flex; gap:16px; margin-top:12px; flex-wrap:wrap }
+.stat-card{ flex:1; min-width:160px; background:var(--card); padding:18px; border-radius:12px;
+  border:1px solid var(--border); text-align:center; box-shadow:0 6px 20px rgba(2,6,23,0.03) }
+.stat-number{ font-size:28px; font-weight:800; color:#0f172a }
+.stat-label{ color:var(--muted); margin-top:6px }
+
+/* quick lists */
+.quick-list{ display:flex; gap:18px; margin-top:8px; flex-wrap:wrap }
+.quick-left, .quick-right{ flex:1; min-width:240px }
+.mini-list{ list-style:none; padding:0; margin:0; }
+.mini-list li{ padding:8px 0; border-bottom:1px dashed #f1f2f4; }
+
+/* footer */
+.footer{ max-width:980px; margin: 12px auto 40px; padding:0 18px; text-align:center; color:var(--muted) }
+
+/* responsive */
+@media (max-width:860px){
+  .stats-grid{ flex-direction:column }
+  .nav-left{ gap:8px }
+  .container{ padding:0 12px }
+  .form input{ min-width:100% }
+}
